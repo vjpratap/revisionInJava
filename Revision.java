@@ -1,4 +1,15 @@
 class Revision{
+	private int giveDecimal(int binary){
+		int decimal = 0, power = 0;
+		while(binary != 0){
+			if(binary%2 == 1)
+				decimal += (int)Math.pow(2, power);
+			power++;
+			binary /= 10;
+		}
+		return decimal;
+	}
+
 	public String reverse(String newStr){
 		int length = newStr.length(),i;
 		String s = "";
@@ -10,13 +21,10 @@ class Revision{
 		return (term == 1) ? 0 : (term == 2) ? 1 : fibonacci(term - 1) + fibonacci(term - 2);
 	}
 	public int readBinary(int binary){
-		int decimal = 0, power = 0;
-		while(binary != 0){
-			if(binary%2 == 1)
-				decimal += (int)Math.pow(2, power);
-			power++;
-			binary /= 10;
-		}
-		return decimal;
+		return giveDecimal(binary);
+	}
+	public int readBinary(String binary){
+		int textBinary = Integer.parseInt(binary);
+		return giveDecimal(textBinary);
 	}
 }
