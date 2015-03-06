@@ -1,9 +1,9 @@
 class Revision{
-	private int giveDecimal(int binary){
+	private int giveDecimal(int binary, int base){
 		int decimal = 0, power = 0;
 		while(binary != 0){
 			if(binary%2 == 1)
-				decimal += (int)Math.pow(2, power);
+				decimal += (int)Math.pow(base, power);
 			power++;
 			binary /= 10;
 		}
@@ -21,10 +21,13 @@ class Revision{
 		return (term == 1) ? 0 : (term == 2) ? 1 : fibonacci(term - 1) + fibonacci(term - 2);
 	}
 	public int readBinary(int binary){
-		return giveDecimal(binary);
+		return giveDecimal(binary,2);
 	}
 	public int readBinary(String binary){
 		int textBinary = Integer.parseInt(binary);
-		return giveDecimal(textBinary);
+		return giveDecimal(textBinary,2);
+	}
+	public int readOctal(int octal){
+		return giveDecimal(octal, 8);
 	}
 }

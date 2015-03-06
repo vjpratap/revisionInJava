@@ -32,4 +32,14 @@ public class RevisionTest{
 		assertEquals(9,r.readBinary("1001"));
 		assertEquals(255,r.readBinary("11111111"));	
 	}
+	@Test
+	public void readOctal_reads_numbers_as_octal(){
+		Revision r = new Revision();
+		assertEquals(0,r.readOctal(0));
+		assertEquals(1,r.readOctal(1));
+		assertEquals(8,r.readOctal(10));
+		assertEquals(513,r.readOctal(1001));
+		assertEquals(299593,r.readOctal(1111111));
+	};
+
 }
