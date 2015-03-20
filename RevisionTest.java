@@ -41,5 +41,27 @@ public class RevisionTest{
 		assertEquals(513,r.readOctal(1001));
 		assertEquals(299593,r.readOctal(1111111));
 	};
-
+	@Test
+	public void readBinary_reads_text_as_octal(){
+		Revision r = new Revision();
+		assertEquals(0,r.readOctal("0"));
+		assertEquals(1,r.readOctal("1"));
+		assertEquals(8,r.readOctal("10"));
+		assertEquals(513,r.readOctal("1001"));
+		assertEquals(299593,r.readOctal("1111111"));
+	};
+	@Test
+	public void getVowelCount_gives_the_count_of_vowels(){
+		Revision r = new Revision();
+		assertEquals(r.getVowelCount("morning"),2);
+	}
 }
+
+
+
+
+
+
+
+
+
